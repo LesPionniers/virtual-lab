@@ -1,0 +1,170 @@
+:root {
+    --primary-color: #003366;
+    --secondary-color: #001F3F;
+    --light-color: #ffffff;
+    --hover-background: rgba(0, 51, 102, 0.95);
+    --info-panel-background: rgba(0, 51, 102, 0.85);
+    --border-color: rgba(255, 255, 255, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+  }
+  
+  body {
+    background: radial-gradient(circle at center, var(--primary-color), var(--secondary-color));
+    animation: backgroundMove 15s ease-in-out infinite;
+  }
+  
+  @keyframes backgroundMove {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  
+  /* Style pour le sélecteur d'organe */
+  select {
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s ease;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+  }
+  
+  select:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+  }
+  
+  select:focus {
+    transform: scale(1.05);
+  }
+  
+  /* Style pour le panneau d'information */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .info-panel {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+    background-color: var(--info-panel-background);
+    color: var(--light-color);
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px var(--shadow-color);
+    max-width: 300px;
+    transition: transform 0.3s, background-color 0.3s ease;
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  .info-panel:hover {
+    transform: translateY(-5px);
+    background-color: var(--hover-background);
+  }
+  
+  /* Titre du panneau */
+  .info-panel h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  /* Texte descriptif */
+  .info-panel p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #b0c4de;
+  }
+  
+  /* Spinner de chargement */
+  .spinner {
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--light-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Positionnement du spinner */
+  .spinner-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Animation de survol du canvas */
+  canvas {
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  canvas:hover {
+    transform: scale(1.01);
+  }
+  
+  /* Boutons du panneau de contrôle */
+  button {
+    background-color: #00509E;
+    color: var(--light-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .error {
+    color: red;
+  }
